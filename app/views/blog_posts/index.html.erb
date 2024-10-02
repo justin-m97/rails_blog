@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple blog page template">
+    <meta name="author" content="Your Name">
+    <title>My Blog</title>
+    <style>
+        /* Basic styles for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .post {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post h2 {
+            margin-top: 0;
+        }
+        .post time {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .post p {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+      <% @blog_posts.each do |blog_post| %>
+        <% if blog_post.present? %>
+          <div class="post">
+            <h2><%= link_to blog_post.title, blog_post %></h2>
+            <%= blog_post.body %>
+         </div>
+      <% end %>
+    <% end %>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
