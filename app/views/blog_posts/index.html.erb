@@ -81,9 +81,15 @@
 
     <div class="container">
       <% @blog_posts.each do |blog_post| %>
+      <div>
         <% if blog_post.present? %>
           <div class="post">
             <h2><%= link_to blog_post.title, blog_post %></h2>
+                <% if blog_post.draft? %>
+                    <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
+                <% elsif blog_post.scheduled? %>
+                   <div class="p-2 rounded bg-orange-100 text-orange-900">scheduled</div>
+                <% end %>
             <%= blog_post.body %>
          </div>
       <% end %>
